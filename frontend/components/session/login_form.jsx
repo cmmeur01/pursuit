@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +22,10 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push('/'));
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   render() {
     let errors = "";
     if (this.props.errors !== undefined) {
@@ -32,7 +36,7 @@ class SessionForm extends React.Component {
         <div className="session-form">
           <form>
             <label>Username
-              <input type="text" 
+              <input type="text"
                 onChange={this.handleInput("username")}
                 value={this.state.username} />
             </label>
@@ -55,4 +59,4 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+export default LoginForm;

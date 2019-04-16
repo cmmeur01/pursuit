@@ -1,4 +1,4 @@
-import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../actions/sesssion_actions';
+import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS } from '../actions/sesssion_actions';
 import merge from 'lodash/merge';
 
 export default (state = [], action) => {
@@ -7,6 +7,8 @@ export default (state = [], action) => {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
     case RECEIVE_CURRENT_USER:
+      return [];
+    case CLEAR_ERRORS:
       return [];
     default:
       return state;

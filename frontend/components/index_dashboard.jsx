@@ -1,10 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import DemoContainer from './session/demo_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
+import SplashContainer from './splash/splash_container';
+import Page404 from './page_404';
 
 
 const IndexDashboard = () => (

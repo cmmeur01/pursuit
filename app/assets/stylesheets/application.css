@@ -43,6 +43,7 @@
 }
 .button:hover {
 	background-color: #EB5B31;
+	cursor: pointer;
 }
 .button:active {
 	position: relative;
@@ -68,6 +69,7 @@
 
 .form-button:hover {
 	background-color: #EB5B31;
+	cursor: pointer;
 }
 .form-button:active {
 	position: relative;

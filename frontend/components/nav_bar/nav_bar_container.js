@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import NavBar from './nav_bar';
 import { logout } from './../../actions/sesssion_actions';
 
-const msp = state => ({
+const msp = (state, ownProps) => ({
   currentUser: state.entities.users[state.session.currentUserId]
 });
 
