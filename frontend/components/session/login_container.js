@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
   }
   return ({
     errors: errors,
-    formType: "Log Up"
+    formType: "Log In"
   });
 };
 

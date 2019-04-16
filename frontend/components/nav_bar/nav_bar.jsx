@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Splash from './../splash/splash';
 
 export default ({ currentUser, logout }) => {
 
@@ -9,15 +9,11 @@ export default ({ currentUser, logout }) => {
       <button onClick={logout}>Log Out</button>
     </div>
   ) : (
-      <nav>
-      <Link to="/signup" >Sign Up</Link>
-      <Link to="/login" >Log In</Link>
-    </nav>
+      <Splash />
   );
 
   return (
     <div className="nav-bar">
-      <img className="nav-logo" src="" />
       {navDisp}
     </div>
   )

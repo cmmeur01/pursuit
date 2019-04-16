@@ -1,0 +1,72 @@
+.splash-container {
+  position: relative;
+  /* text-align: center; */
+}
+
+.splash-bg {
+  max-width: 100%;
+  height: auto;
+}
+
+.top-right-login {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.top-right-signup {
+  position: absolute;
+  top: 8px;
+  right: 96px;
+}
+
+.session-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+}
+
+.session-form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.session-form-errors {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  color: red;
+}
+
+.session-form input[type=text] {
+  width: 70%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.session-form input[type=password] {
+  width: 70%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.tagline {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+}
