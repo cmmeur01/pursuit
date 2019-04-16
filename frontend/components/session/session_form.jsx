@@ -23,8 +23,15 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let errors = "";
+    if (this.props.errors !== undefined) {
+      errors = this.props.errors.map(error => (<li key={error}>{error}</li>));
+    }
     return (
       <div className="session-form">
+        <ul className="session-form-errors">
+          {errors}
+        </ul>
         <form>
           <label>Username
             <input type="text" 
