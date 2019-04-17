@@ -4,14 +4,13 @@ import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import DemoContainer from './session/demo_container';
-import NavBarContainer from './nav_bar/nav_bar_container';
-import SplashContainer from './splash/splash_container';
+import IndexContainer from './index_container';
 import Page404 from './page_404';
 
 
 const IndexDashboard = () => (
   <div className="index-container">
-    <Route path="/" component={NavBarContainer} />
+    <Route path="/" component={IndexContainer} />
     <AuthRoute exact path="/signup" component={SignupContainer} />
     <AuthRoute exact path="/login" component={LoginContainer} />
     <AuthRoute exact path="/demo" component={DemoContainer} />

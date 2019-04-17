@@ -1,27 +1,20 @@
 import React from 'react';
-import Splash from './../splash/splash_container';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
   }
 
   render() {
-    const navDisp = this.props.currentUser ? (
-      <div>
-        <p>Hello, {this.props.currentUser.username}</p>
-        <button onClick={this.props.logout}>Log Out</button>
-      </div>
-    ) : (
-        <Splash location={this.props.history.location.pathname} />
-      );
-
     return (
-      <div className="nav-bar">
-        {navDisp}
-      </div>
+    <div className="nav-bar">
+        <Link to="/"><button className="button">PURSUIT</button></Link>
+      <button className="button" onClick={this.props.logout}>Log Out</button>
+    </div>
     )
   }
+
 }
 
 export default NavBar;
