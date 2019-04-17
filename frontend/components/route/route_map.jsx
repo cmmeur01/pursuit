@@ -52,6 +52,7 @@ class RouteMap extends React.Component {
 
     directionsService.route(request, function (response, status) {
       if (status == 'OK') {
+        console.log(google.maps.geometry.encoding.decodePath(response.routes[0].overview_polyline));
         directionsDisplay.setDirections(response);
       }
     });
