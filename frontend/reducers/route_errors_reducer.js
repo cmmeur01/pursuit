@@ -1,12 +1,12 @@
-import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS } from '../actions/session_actions';
-import merge from 'lodash/merge';
+import { RECEIVE_ROUTE, RECEIVE_ROUTE_ERRORS } from './../actions/route_actions';
+import { CLEAR_ERRORS } from '../actions/session_actions';
 
 export default (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_SESSION_ERRORS:
+    case RECEIVE_ROUTE_ERRORS:
       return action.errors;
-    case RECEIVE_CURRENT_USER:
+    case RECEIVE_ROUTE:
       return [];
     case CLEAR_ERRORS:
       return [];
@@ -14,4 +14,3 @@ export default (state = [], action) => {
       return state;
   }
 };
-

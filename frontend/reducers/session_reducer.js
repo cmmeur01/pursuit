@@ -1,4 +1,4 @@
-import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER } from '../actions/sesssion_actions';
+import { LOGOUT_CURRENT_USER, RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {

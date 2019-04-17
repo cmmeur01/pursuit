@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login } from './../../actions/sesssion_actions';
+import { login } from './../../actions/session_actions';
 import DemoForm from './demo_form';
 
 const msp = (state, ownProps) => {
