@@ -30,20 +30,22 @@ class RouteMap extends React.Component {
 
   createRequest(mode) {
     let request = {};
-    let start = null;
-    let end = null;
     if (this.state.waypoints) {
-      start = { lat: this.state.waypoints[0].lat(), lng: this.state.waypoints[0].lng() };
-      end = { lat: this.state.waypoints[this.state.waypoints.length - 1].lat(), lng: this.state.waypoints[this.state.waypoints.length - 1].lng() };
-
-      request = { origin: start, destination: end, travelMode: mode };
+      
+      let start = { lat: this.state.waypoints[0].lat(), lng: this.state.waypoints[0].lng() };
+      let end = { lat: this.state.waypoints[this.state.waypoints.length - 1].lat(), lng: this.state.waypoints[this.state.waypoints.length - 1].lng() };
+      let points = this.state.waypoints.slice(1, this.state.waypoints.length - 1);
+      let waypoints = [];
+      points.forEach(point => (waypoints.push({ location: { lat: point.lat(), lng: point.lng() }})));
+      request = { origin: start, destination: end, waypoints: waypoints, travelMode: mode };
     }
     return request;
   }
 
-  createRoute(sport) {
+  createRoute(sport = "Cycling") {
     let directionsService = new google.maps.DirectionsService();
     let directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay.setMap(this.map);
     let mode;
     sport === "Cycling" ? mode = 'BICYCLING' : mode = 'WALKING';
     let request = this.createRequest(mode);
@@ -64,6 +66,10 @@ class RouteMap extends React.Component {
     });
     this.path = this.polyLine.getPath();
     this.listenClicks();
+    this.setState({
+      waypoints: null
+    });
+    this.props.sendData(this.state);
   }
 
   listenClicks() {
@@ -99,7 +105,7 @@ class RouteMap extends React.Component {
     return (<div>
       <div className='map-container' id='map-container' ref={map => this.mapNode = map}>
       </div>
-      <p><button className="button" onClick={() => (this.createRoute("Cycling"))}>Create Route</button></p>
+      <p><button className="button" onClick={this.createRoute}>Create Route</button></p>
       <p><button className="button" onClick={this.resetRoute}>Reset Route</button></p>
     </div>
     )

@@ -5,11 +5,12 @@ class RouteBuilder extends React.Component {
   constructor(props){
     super(props);
     this.getMapData = this.getMapData.bind(this);
-    this.state = {};
+    this.state = { waypoints: null };
   }
 
   getMapData(mapData) {
     this.setState(mapData);
+    console.log(this.state);
   }
 
   render() {
