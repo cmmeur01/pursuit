@@ -5,3 +5,12 @@ export const create = (route) => {
     data: { route }
   });
 };
+
+//data will point to the sport eventually
+export const getRoutes = () => {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/routes",
+    data: {}
+  });
+};

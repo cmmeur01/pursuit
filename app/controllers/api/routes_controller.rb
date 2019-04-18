@@ -9,6 +9,11 @@ class Api::RoutesController < ApplicationController
     end
   end
 
+  def index
+    @routes = Route.all
+    render :index
+  end
+
   private
   def route_params
     params.require(:route).permit(:user_id, :title, :description, :distance, :elevation, :route, :sport)
