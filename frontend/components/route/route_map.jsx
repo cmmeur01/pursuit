@@ -5,7 +5,11 @@ class RouteMap extends React.Component {
     super(props);
     this.state = {
       waypoints: null,
-      route: null
+      route: null,
+      elevation: 0,
+      distance: 0,
+      title: "",
+      userId: this.props.userId
     };
     this.polyLine = new google.maps.Polyline({
       strokeColor: '#000000',
@@ -54,29 +58,26 @@ class RouteMap extends React.Component {
     let mode;
     sport === "Cycling" ? mode = 'BICYCLING' : mode = 'WALKING';
     let request = this.createRequest(mode);
-    let confirmedRoute = {};
     let id = this.props.userId;
-    let routeBuilder = this.props.createRoute.bind(this);
-    let eleCalc = this.calcElevation.bind(this);
     let requestElevation = this.requestElevation.bind(this);
 
-    directionsService.route(request, function (response, status) {
+    const directionCB = (response, status) => {
       if (status == 'OK') {
         directionsDisplay.setDirections(response);
         let routeLine = response.routes[0].overview_polyline;
         requestElevation(google.maps.geometry.encoding.decodePath(routeLine));
-        // debugger;
-        confirmedRoute = {
-          user_id: id,
-          title: "dummy21",
-          route: routeLine,
-          distance: 1,
-          elevation: 1
-        };
-        routeBuilder(confirmedRoute);
+        let dist = google.maps.geometry.spherical.computeLength(google.maps.geometry.encoding.decodePath(routeLine));
+        this.setState({ userId: id, route: routeLine, distance: dist });
+        this.props.sendData(this.state);
       }
-    });
+    };
+
+    directionsService.route(request, directionCB);
+
   }
+
+  // let routeBuilder = this.props.createRoute.bind(this);
+  // routeBuilder(confirmedRoute);
 
   requestElevation (path) {
     let elevationService = new google.maps.ElevationService();
@@ -97,7 +98,7 @@ class RouteMap extends React.Component {
         totalGain = totalGain + (elevations[i + 1].elevation - elevations[i].elevation);
       }
     }
-    console.log(totalGain);
+    this.setState({elevation: totalGain});
   }
 
   resetRoute() {
