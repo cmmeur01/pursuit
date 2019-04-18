@@ -18,6 +18,8 @@ class RouteMap extends React.Component {
     this.resetRoute = this.resetRoute.bind(this);
     this.initMap = this.initMap.bind(this);
     this.saveRoute = this.saveRoute.bind(this);
+    this.calcElevation = this.calcElevation.bind(this);
+    this.requestElevation = this.requestElevation.bind(this);
   }
 
   initMap() {
@@ -47,6 +49,7 @@ class RouteMap extends React.Component {
   saveRoute(sport = "Cycling") {
     let directionsService = new google.maps.DirectionsService();
     let directionsDisplay = new google.maps.DirectionsRenderer();
+    
     directionsDisplay.setMap(this.map);
     let mode;
     sport === "Cycling" ? mode = 'BICYCLING' : mode = 'WALKING';
@@ -54,15 +57,18 @@ class RouteMap extends React.Component {
     let confirmedRoute = {};
     let id = this.props.userId;
     let routeBuilder = this.props.createRoute.bind(this);
+    let eleCalc = this.calcElevation.bind(this);
+    let requestElevation = this.requestElevation.bind(this);
 
     directionsService.route(request, function (response, status) {
       if (status == 'OK') {
-        
-        let routeLine = response.routes[0].overview_polyline;
         directionsDisplay.setDirections(response);
+        let routeLine = response.routes[0].overview_polyline;
+        requestElevation(google.maps.geometry.encoding.decodePath(routeLine));
+        // debugger;
         confirmedRoute = {
           user_id: id,
-          title: "dummy2221",
+          title: "dummy21",
           route: routeLine,
           distance: 1,
           elevation: 1
@@ -70,10 +76,28 @@ class RouteMap extends React.Component {
         routeBuilder(confirmedRoute);
       }
     });
-    //send ajax request to persist to database
-    //dispatch to put it in the store
-    // debugger;
-    
+  }
+
+  requestElevation (path) {
+    let elevationService = new google.maps.ElevationService();
+    let calcElevation = this.calcElevation;
+    elevationService.getElevationAlongPath({
+      'path': path,
+      'samples': path.length
+    }, elevations => calcElevation(elevations));
+
+  }
+
+  calcElevation(elevations) {
+    let totalGain = 0;
+    //if change between points is > 0.25m add to total gain
+    //filters out some noise
+    for (let i = 0; i < elevations.length - 1; i++) {
+      if ((elevations[i + 1].elevation - elevations[i].elevation) > 0.25) {
+        totalGain = totalGain + (elevations[i + 1].elevation - elevations[i].elevation);
+      }
+    }
+    console.log(totalGain);
   }
 
   resetRoute() {
