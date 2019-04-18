@@ -11,6 +11,6 @@ class Api::RoutesController < ApplicationController
 
   private
   def route_params
-    params.require(:route).permit(:user_id, :title, :description, :distance, :elevation, :route)
+    params.require(:route).permit(:user_id, :title, :description, :distance, :elevation, :route, :sport)
   end
 end

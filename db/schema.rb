@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_221618) do
+ActiveRecord::Schema.define(version: 2019_04_18_053002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_221618) do
     t.float "elevation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sport", null: false
     t.index ["user_id"], name: "index_routes_on_user_id"
   end
 

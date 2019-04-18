@@ -1,7 +1,7 @@
 import React from 'react';
 import Splash from './splash/splash_container';
 import NavBar from './nav_bar/nav_bar_container';
-import RouteBuilder from './route/route_builder_container';
+import RouteMap from './route/route_builder_container';
 
 class Index extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Index extends React.Component {
     const indexDisp = this.props.currentUser ? (
         <div>
           <NavBar />
-          <RouteBuilder />
+          <RouteMap />
         </div>
     ) : (
         <Splash location={this.props.history.location.pathname} />

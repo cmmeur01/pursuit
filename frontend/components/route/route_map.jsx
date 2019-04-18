@@ -9,7 +9,9 @@ class RouteMap extends React.Component {
       elevation: 0,
       distance: 0,
       title: "",
-      userId: this.props.userId
+      userId: this.props.userId,
+      description: "",
+      sport: "Cycling"
     };
     this.polyLine = new google.maps.Polyline({
       strokeColor: '#000000',
@@ -24,6 +26,7 @@ class RouteMap extends React.Component {
     this.saveRoute = this.saveRoute.bind(this);
     this.calcElevation = this.calcElevation.bind(this);
     this.requestElevation = this.requestElevation.bind(this);
+    this.commitRoute = this.commitRoute.bind(this);
   }
 
   initMap() {
@@ -38,7 +41,7 @@ class RouteMap extends React.Component {
 
   createRequest(mode) {
     let request = {};
-    if (this.state.waypoints) {
+    if (this.state.waypoints.length > 1) {
       
       let start = { lat: this.state.waypoints[0].lat(), lng: this.state.waypoints[0].lng() };
       let end = { lat: this.state.waypoints[this.state.waypoints.length - 1].lat(), lng: this.state.waypoints[this.state.waypoints.length - 1].lng() };
@@ -68,16 +71,14 @@ class RouteMap extends React.Component {
         requestElevation(google.maps.geometry.encoding.decodePath(routeLine));
         let dist = google.maps.geometry.spherical.computeLength(google.maps.geometry.encoding.decodePath(routeLine));
         this.setState({ userId: id, route: routeLine, distance: dist });
-        this.props.sendData(this.state);
       }
     };
 
-    directionsService.route(request, directionCB);
-
+    if (request.waypoints) {
+      directionsService.route(request, directionCB);
+    }
   }
 
-  // let routeBuilder = this.props.createRoute.bind(this);
-  // routeBuilder(confirmedRoute);
 
   requestElevation (path) {
     let elevationService = new google.maps.ElevationService();
@@ -86,7 +87,6 @@ class RouteMap extends React.Component {
       'path': path,
       'samples': path.length
     }, elevations => calcElevation(elevations));
-
   }
 
   calcElevation(elevations) {
@@ -111,9 +111,14 @@ class RouteMap extends React.Component {
     this.path = this.polyLine.getPath();
     this.listenClicks();
     this.setState({
-      waypoints: null
+      waypoints: null,
+      title: "",
+      description: "",
+      distance: 0,
+      elevation: 0,
+      route: null,
+      sport: "Cycling"
     });
-    this.props.sendData(this.state);
   }
 
   listenClicks() {
@@ -133,10 +138,11 @@ class RouteMap extends React.Component {
       //set the state to the waypoints array from the create path
       this.setState({ waypoints: thatPath["j"] });
       //push the state to the parent builder component
-      this.props.sendData(this.state);
+      // this.props.sendData(this.state);
     };
 
     this.map.addListener('click', addLatLng);
+    this.map.addListener('click', this.saveRoute);
     
   }
 
@@ -145,12 +151,45 @@ class RouteMap extends React.Component {
     this.listenClicks();
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
+  commitRoute(e) {
+    e.preventDefault();
+    let route = {
+      user_id: parseInt(this.state.userId),
+      route: this.state.route,
+      distance: this.state.distance,
+      elevation: this.state.elevation,
+      title: this.state.title,
+      description: this.state.description,
+      sport: this.state.sport
+    };
+    this.props.createRoute(route);
+  }
+
   render() {
     return (<div>
       <div className='map-container' id='map-container' ref={map => this.mapNode = map}>
       </div>
+      <label>Route Name
+        <input id="route-name" value={this.state.title} onChange={this.update("title")} type="text"></input>
+      </label>
+      <label>
+        Choose a sport:
+        <select onChange={this.update("sport")} value={this.state.sport}>
+          <option value="Cycling">Cycling</option>
+          <option value="Running">Running</option>
+        </select>
+      </label>
+      <label>Description
+        <input value={this.state.description} onChange={this.update("description")} type="text"></input>
+      </label><br />
       <p><button className="button" onClick={this.resetRoute}>Reset Route</button></p>
-      <p><button className="button" onClick={this.saveRoute}>Commit Route</button></p>
+      <p><button onClick={this.commitRoute} className="button">Save Route</button></p>
     </div>
     )
   }
@@ -158,3 +197,4 @@ class RouteMap extends React.Component {
 }
 
 export default RouteMap;
+

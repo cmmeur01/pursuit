@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import RouteBuilder from './route_builder';
+import RouteMap from './route_map';
 import { createRoute } from '../../actions/route_actions';
 
 const msp = state => ({
@@ -10,4 +10,4 @@ const mdp = dispatch => ({
   createRoute: (route) => dispatch(createRoute(route))
 });
 
-export default connect(msp, mdp)(RouteBuilder);
+export default connect(msp, mdp)(RouteMap);
