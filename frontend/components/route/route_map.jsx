@@ -4,7 +4,8 @@ class RouteMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      waypoints: null
+      waypoints: null,
+      route: null
     };
     this.polyLine = new google.maps.Polyline({
       strokeColor: '#000000',
@@ -12,10 +13,11 @@ class RouteMap extends React.Component {
       strokeWeight: 3
     });
     this.path = this.polyLine.getPath();
+    this.routeLine = "";
     this.createRequest = this.createRequest.bind(this);
-    this.createRoute = this.createRoute.bind(this);
     this.resetRoute = this.resetRoute.bind(this);
     this.initMap = this.initMap.bind(this);
+    this.saveRoute = this.saveRoute.bind(this);
   }
 
   initMap() {
@@ -42,20 +44,36 @@ class RouteMap extends React.Component {
     return request;
   }
 
-  createRoute(sport = "Cycling") {
+  saveRoute(sport = "Cycling") {
     let directionsService = new google.maps.DirectionsService();
     let directionsDisplay = new google.maps.DirectionsRenderer();
     directionsDisplay.setMap(this.map);
     let mode;
     sport === "Cycling" ? mode = 'BICYCLING' : mode = 'WALKING';
     let request = this.createRequest(mode);
+    let confirmedRoute = {};
+    let id = this.props.userId;
+    let routeBuilder = this.props.createRoute.bind(this);
 
     directionsService.route(request, function (response, status) {
       if (status == 'OK') {
-        console.log(google.maps.geometry.encoding.decodePath(response.routes[0].overview_polyline));
+        
+        let routeLine = response.routes[0].overview_polyline;
         directionsDisplay.setDirections(response);
+        confirmedRoute = {
+          user_id: id,
+          title: "dummy2221",
+          route: routeLine,
+          distance: 1,
+          elevation: 1
+        };
+        routeBuilder(confirmedRoute);
       }
     });
+    //send ajax request to persist to database
+    //dispatch to put it in the store
+    // debugger;
+    
   }
 
   resetRoute() {
@@ -106,8 +124,8 @@ class RouteMap extends React.Component {
     return (<div>
       <div className='map-container' id='map-container' ref={map => this.mapNode = map}>
       </div>
-      <p><button className="button" onClick={this.createRoute}>Create Route</button></p>
       <p><button className="button" onClick={this.resetRoute}>Reset Route</button></p>
+      <p><button className="button" onClick={this.saveRoute}>Commit Route</button></p>
     </div>
     )
   }

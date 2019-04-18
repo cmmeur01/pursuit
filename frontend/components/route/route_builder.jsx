@@ -16,7 +16,7 @@ class RouteBuilder extends React.Component {
   render() {
     return (
       <div>
-        <RouteMap sendData={this.getMapData} />
+        <RouteMap sendData={this.getMapData} createRoute={this.props.createRoute} userId={this.props.userId} />
       </div>
     )
   }

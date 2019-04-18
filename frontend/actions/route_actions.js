@@ -15,6 +15,8 @@ const receiveRouteErrors = (errors) => ({
 
 export const createRoute = (route) => dispatch => {
   return create(route).then(route => dispatch(receiveRoute(route)),
-    errors => dispatch(receiveRouteErrors(errors.responseJSON))
+    errors => console.log(errors)
   );
 };
+
+//dispatch(receiveRouteErrors(errors.responseJSON)
