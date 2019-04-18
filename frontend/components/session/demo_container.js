@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login } from './../../actions/session_actions';
+import { login, clearErrors } from './../../actions/session_actions';
 import DemoForm from './demo_form';
 
 const msp = (state, ownProps) => {
@@ -14,7 +14,8 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch, ownProps) => ({
-  processForm: user => dispatch(login(user))
+  processForm: user => dispatch(login(user)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(msp, mdp)(DemoForm);

@@ -16,71 +16,80 @@
  *= require_self
  */
 
- /* COLORS
-	 ORANGE - FF7F00
-	 WHITE - FFFFFF
-	 DEEP CARROT ORANGE - EB5B31
-	 SEA SERPENT BLUE - 63CED2
-	 PRICNETON ORANGE - F57E24 */
-
 	html {
 		font-family: 'Noto Sans', sans-serif;
 	}
 
- .button {
-	box-shadow: inset 0px 1px 0px 0px #EB5B31;
-	background-color: #F57E24;
+.button {
+	background-color: #FFFFFF;
 	border-radius: 3px;
-	border: 1px solid #EB5B31;
+	border: 1px solid #CCCCCC;
 	display: inline-block;
 	cursor: pointer;
-	color: #ffffff;
+	color: #FC4C02;
 	font-size: 13px;
 	font-weight: bolder;
-	padding: 10px 15px;
+	padding: 10px 30px;
 	text-decoration: none;
-	text-shadow: 0px 1px 0px #EB5B31;
 }
+
 .button:hover {
-	background-color: #EB5B31;
+	background-color: #dedee2;
 	cursor: pointer;
 }
+
 .button:active {
 	position: relative;
 	top: 1px;
 }
 
-.form-button {
-	box-shadow: inset 0px 1px 0px 0px #EB5B31;
-	background-color: #F57E24;
+.button-login {
+	background-color: #FFFFFF;
 	border-radius: 3px;
-	border: 1px solid #EB5B31;
+	border: 1px solid #CCCCCC;
 	display: inline-block;
 	cursor: pointer;
-	color: #ffffff;
+	color: #FC4C02;
 	font-size: 13px;
 	font-weight: bolder;
-	padding: 9px 13px;
+	padding: 10px 30px;
 	text-decoration: none;
-	text-shadow: 0px 1px 0px #EB5B31;
-	width: 30%;
-	justify-content: center;
 }
 
-.form-button:hover {
-	background-color: #EB5B31;
+.button-login:hover {
+	background-color: #f5f5fa;
 	cursor: pointer;
 }
-.form-button:active {
+
+.button-login:active {
 	position: relative;
 	top: 1px;
 }
 
-label {
-  font-weight: bolder;
-  display: block;
-  float: left;
-  color: black;
+.form-button {
+	background-color: #FC4C02;
+	border-radius: 3px;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bolder;
+	padding: 10px 30px;
+	text-decoration: none;
+	width: 100%;
+	justify-content: center;
+	border: 1px solid #FC4C02;
+}
+
+.form-button:hover {
+	background-color: #D13E00;
+	border: 1px solid #D13E00;
+	cursor: pointer;
+}
+
+.form-button:active {
+	position: relative;
+	top: 1px;
 }
 
 .map-container {

@@ -22,6 +22,10 @@ class DemoForm extends React.Component {
       .then(() => this.props.history.push('/'));
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   render() {
     let errors = "";
     if (this.props.errors !== undefined) {
@@ -30,25 +34,23 @@ class DemoForm extends React.Component {
     return (
       <div className="session-container">
         <div className="session-form">
-          <form>
-            <label>Username
+          <div className="form-text">Try Pursuit now!</div>
+          <form className="form-form">
               <input type="text"
                 onChange={this.handleInput("username")}
                 value={this.state.username} />
-            </label>
-            <label>Password
               <input type="password"
                 onChange={this.handleInput("password")}
                 value={this.state.password} />
-            </label>
             <button className="form-button" onClick={this.handleSubmit}>{this.props.formType}</button>
           </form>
+          <div className="session-form-errors">
+            <ul>
+              {errors}
+            </ul>
+          </div>
         </div>
-        <div className="session-form-errors">
-          <ul>
-            {errors}
-          </ul>
-        </div>
+        
       </div>
     )
   }
