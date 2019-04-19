@@ -6,6 +6,7 @@ import LoginContainer from './session/login_container';
 import DemoContainer from './session/demo_container';
 import IndexContainer from './index_container';
 import RouteIndex from './route/route_index_container';
+import RouteShow from './route/route_show_container';
 import RouteMap from './route/route_builder_container';
 import Page404 from './page_404';
 
@@ -18,7 +19,7 @@ const IndexDashboard = () => (
     <AuthRoute exact path="/demo" component={DemoContainer} />
     <ProtectedRoute exact path="/routes" component={RouteIndex} />
     <ProtectedRoute exact path="/routes/new" component={RouteMap} />
-
+    <ProtectedRoute exact path="/routes/:routeId" component={RouteShow} />
   </div>
 );
 

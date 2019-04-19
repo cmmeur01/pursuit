@@ -1,4 +1,4 @@
-import { create, getRoutes } from './../util/route_api_util';
+import { create, getRoutes, getSingleRoute } from './../util/route_api_util';
 
 export const RECEIVE_ROUTE = "RECEIVE_ROUTE";
 export const RECEIVE_ROUTES = "RECEIVE_ROUTES";
@@ -27,6 +27,12 @@ export const createRoute = (route) => dispatch => {
 
 export const getAllRoutes = () => dispatch => {
   return getRoutes().then(routes => dispatch(receiveRoutes(routes)),
+    errors => console.log(errors)
+  );
+};
+
+export const getRoute = (id) => dispatch => {
+  return getSingleRoute(id).then(route => dispatch(receiveRoute(route)),
     errors => console.log(errors)
   );
 };
