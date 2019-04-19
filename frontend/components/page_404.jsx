@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Page404 = ({ location }) => (
+const Page404 = () => (
   <div>
-    <p>No match found for <code>{location.pathname}</code></p>
+    <p>Sorry, looks like you took a wrong turn.</p>
+    <Link to="/">Home</Link>
   </div>
 );
 

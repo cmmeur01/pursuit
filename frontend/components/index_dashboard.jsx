@@ -14,12 +14,14 @@ import Page404 from './page_404';
 const IndexDashboard = () => (
   <div className="index-container">
     <Route path="/" component={IndexContainer} />
-    <AuthRoute exact path="/signup" component={SignupContainer} />
-    <AuthRoute exact path="/login" component={LoginContainer} />
-    <AuthRoute exact path="/demo" component={DemoContainer} />
-    <ProtectedRoute exact path="/routes" component={RouteIndex} />
-    <ProtectedRoute exact path="/routes/new" component={RouteMap} />
-    <ProtectedRoute exact path="/routes/:routeId" component={RouteShow} />
+    <Switch>
+      <AuthRoute exact path="/signup" component={SignupContainer} />
+      <AuthRoute exact path="/login" component={LoginContainer} />
+      <AuthRoute exact path="/demo" component={DemoContainer} />
+      <ProtectedRoute exact path="/routes" component={RouteIndex} />
+      <ProtectedRoute exact path="/routes/new" component={RouteMap} />
+      <ProtectedRoute exact path="/routes/:routeId" component={RouteShow} />
+    </Switch>
   </div>
 );
 
