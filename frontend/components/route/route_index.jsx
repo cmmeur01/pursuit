@@ -1,4 +1,6 @@
 import React from 'react';
+import RouteIndexItem from './route_index_item';
+import { Link } from 'react-router-dom';
 
 class RouteIndex extends React.Component {
   constructor(props) {
@@ -13,15 +15,21 @@ class RouteIndex extends React.Component {
     let routeList = "";
     if (this.props.routes != {}) {
       let routes = Object.values(this.props.routes);
-      console.log(routes);
-
-      routeList = routes.map((route) => (<li>{route.id}</li>));
-
+      routeList = routes.map((route) => (<Link key={route.id} to={`/routes/${route.id}`}>
+          <div className="route-idx-view">
+          <RouteIndexItem route={route} />
+      </div>
+      </Link>));
     }
 
-    return (<div className="route-index">
-              <h1 className="route-title">Routes</h1>
-              <div>
+    return (<div>
+              <div className="route-title">
+                <h1>All Routes</h1>
+                <Link to="/routes/new">
+                  <button className="new-route-button">Create New Route</button>
+                </Link>
+              </div>
+              <div className="routes-container">
                 <ul className="route-list">
                   {routeList}
                 </ul>

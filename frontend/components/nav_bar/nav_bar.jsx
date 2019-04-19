@@ -10,6 +10,7 @@ class NavBar extends React.Component {
     return (
     <div className="nav-bar">
         <Link to="/"><button className="button">PURSUIT</button></Link>
+        <Link to="/routes"><button className="button">Routes</button></Link>
       <button className="button" onClick={this.props.logout}>Log Out</button>
     </div>
     )

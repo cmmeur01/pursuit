@@ -169,6 +169,7 @@ class RouteMap extends React.Component {
       sport: this.state.sport
     };
     this.props.createRoute(route);
+    this.props.history.push("/routes/");
   }
 
   render() {

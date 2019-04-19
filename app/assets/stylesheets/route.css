@@ -5,4 +5,56 @@
 
 .route-title {
   padding: 25px 50px;
+  margin-left: 100px;
+  margin-right: 60px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.route-idx-view {
+  height: 400px;
+  width: 400px;
+  border: 1px solid #f2f2f2;
+  padding: 25px;
+  margin: 10px;
+}
+
+.route-idx-view:hover {
+  background-color: #f5f5fa;
+}
+
+.route-list > li {
+  list-style: none;
+}
+
+.route-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.new-route-button {
+	background-color: #FC4C02;
+	border-radius: 3px;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bolder;
+	padding: 6px 16px;
+	text-decoration: none;
+	width: 180px;
+	justify-content: center;
+	border: 1px solid #FC4C02;
+}
+
+.new-route-button:hover {
+	background-color: #D13E00;
+	border: 1px solid #D13E00;
+	cursor: pointer;
+}
+
+.new-route-button:active {
+	position: relative;
+	top: 1px;
 }
