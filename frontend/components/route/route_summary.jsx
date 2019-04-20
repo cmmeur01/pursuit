@@ -3,6 +3,7 @@ import React from 'react';
 class RouteSummary extends React.Component {
   constructor(props){
     super(props);
+    this.owner = "";
   }
 
   render() {
@@ -10,14 +11,17 @@ class RouteSummary extends React.Component {
     let elevation = 0;
     let length = 0;
     let type = "";
+    let owner = "";
     if (this.props.route) {
+      this.props.getOwner(this.props.route.user_id);
       length = round((this.props.route.distance / 1000), 2);
       elevation = round(this.props.route.elevation,1);
       type = this.props.route.sport;
+      owner = this.props.users[this.props.route.user_id].username;
     }
 
     return (<div>
-              <div>Created by username here</div>
+              <div><h1>By {owner}</h1></div>
                 <div className="dist-container">
                 <div className="dist-inner">
                   <h2>{length}km</h2>

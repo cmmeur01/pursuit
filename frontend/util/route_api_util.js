@@ -22,3 +22,11 @@ export const getSingleRoute = (id) => {
     data: {}
   });
 };
+
+export const getRouteOwner = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/users/${id}`,
+    data: {}
+  });
+};
