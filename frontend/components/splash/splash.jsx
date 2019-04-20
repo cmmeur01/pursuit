@@ -12,6 +12,9 @@ class Splash extends React.Component {
     if (this.props.location === "/") {
       return (
         <div className="main-links">
+          <Link to="/">
+            <img className="nav-logo" src={window.logo} />
+          </Link>
           <Link className="top-right-login" to="/login">
             <button className="button">
               Log In
@@ -29,14 +32,16 @@ class Splash extends React.Component {
           </Link>
           <div className="splash-container">
             <img className="splash" src={window.splash} />
-            
-            <header className="splash-tagline">Pursuit: The #2 webapp for cyclists and runners</header>
+            <header className="splash-tagline">Pursuit: The #2 web app for cyclists and runners</header>
           </div>
         </div>
       )
     } else if (this.props.location === "/demo") {
       return (
-        <div>
+        <div className="main-links">
+          <Link to="/">
+            <img className="nav-logo" src={window.logo} />
+          </Link>
           <Link className="top-right-login" to="/login">
             <button className="button-login">
               Log In
@@ -55,6 +60,9 @@ class Splash extends React.Component {
     } else if (this.props.location === "/signup") {
       return (
         <div>
+          <Link to="/">
+            <img className="nav-logo" src={window.logo} />
+          </Link>
           <Link className="top-right-login" to="/login">
             <button className="button-login">
               Log In
@@ -72,13 +80,16 @@ class Splash extends React.Component {
       )
     } else {
       return (
-        <div>
+        <div className="main-links">
+          <Link to="/">
+            <img className="nav-logo" src={window.logo} />
+          </Link>
           <Link className="top-right-login" to="/signup">
             <button className="button-login">
               Sign Up
             </button>
           </Link>
-          <Link className="top-left-demo" to="/demo">
+          <Link className="top-left-demo-sign-in" to="/demo">
             <button className="button-login">
               Demo
             </button>

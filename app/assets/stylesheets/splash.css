@@ -6,11 +6,13 @@
 .splash-bg {
   max-width: 100%;
   height: auto;
+  position: absolute;
+  top: -49px;
 }
 
 .splash {
   position: absolute;
-  top: 200px;
+  top: 150px;
   right: 45%;
 }
 
@@ -29,13 +31,19 @@
 .main-signup {
   position: absolute;
   top: 35%;
-  right: 30%;
+  right: 23%;
 }
 
 .top-left-demo {
   position: absolute;
   top: 8px;
-  left: 16px;
+  right: 128px;
+}
+
+.top-left-demo-sign-in {
+  position: absolute;
+  top: 8px;
+  right: 136px;
 }
 
 .main-signup > button {
@@ -67,15 +75,14 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  top: 30%;
+  top: 20%;
   left: 40%;
 }
 
 .session-form {
-  width: 300px;
-  height: 400px;
-  background-color: black;
-  opacity: 0.77;
+  width: 400px;
+  height: 350px;
+  background: rgba(0,0,0,0.75);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -88,14 +95,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.session-form-errors {
-  /* position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -70%); */
-  
 }
 
 .session-form-errors li {
@@ -139,16 +138,12 @@
 }
 
 .splash-tagline {
-  position: absolute;
   font-size: 48px;
-  width: 1000px;
-  top: 50px;
-  right: 300px;
   text-align: center;
 }
 
 .main-links {
-  height: 45px;
+  height: 50px;
   border-bottom: 1px solid #CCCCCC;
 }
 
@@ -157,4 +152,8 @@
   font-weight: bolder;
   font-size: 36px;
   text-align: center;
+  background: rgba(0,0,0,0.9);
+  width: 330px;
+  height: 40px;
+  padding: 35px;
 }

@@ -63,3 +63,40 @@
 	position: relative;
 	top: 1px;
 }
+
+.route-show {
+  margin: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.route-info {
+  margin: 75px;
+}
+
+.route-leaderboard {
+  margin: 75px;
+}
+
+.route-info-container {
+  /* margin: 75px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.route-desc {
+
+}
+
+.dist-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dist-inner {
+  
+}
+

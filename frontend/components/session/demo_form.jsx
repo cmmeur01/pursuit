@@ -33,8 +33,9 @@ class DemoForm extends React.Component {
     }
     return (
       <div className="session-container">
+        <header className="form-text">Try Pursuit now!</header>
         <div className="session-form">
-          <div className="form-text">Try Pursuit now!</div>
+          
           <form className="form-form">
               <input type="text"
                 onChange={this.handleInput("username")}

@@ -1,7 +1,7 @@
 .nav-bar {
   height: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-weight: bolder;
   padding-bottom: 6px;
   border-bottom: 1px solid #dedee2;

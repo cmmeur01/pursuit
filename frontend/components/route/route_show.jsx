@@ -1,4 +1,5 @@
 import React from 'react';
+import RouteSummary from './route_summary';
 
 class RouteShow extends React.Component {
   constructor(props){
@@ -63,15 +64,24 @@ class RouteShow extends React.Component {
 
   render() {
     let routeTitle = "";
+    let routeDesc = "";
     if (this.props.route) {
       routeTitle = this.props.route.title;
+      routeDesc = this.props.route.description;
       this.drawRoute(this.props.route.route);
     }
 
     return (<div className="route-show">
-              <h1>{routeTitle}</h1>
-                <div className='map-show-container' id='map-show-container' ref={map => this.mapNode = map}>
-                </div>
+              <div>
+                <h1>{routeTitle}</h1>
+                <h4 className="route-desc">{routeDesc}</h4>
+                  <div className='map-show-container' id='map-show-container' ref={map => this.mapNode = map}>
+                 </div>
+              </div>
+              <div className="route-info-container">
+                <div className="route-info"><RouteSummary route={this.props.route}/></div>
+                <div className="route-leaderboard">this is where the route leaderboard will display</div>
+              </div>
             </div>);
   }
 
