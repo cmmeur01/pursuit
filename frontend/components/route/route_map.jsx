@@ -6,7 +6,7 @@ class RouteMap extends React.Component {
     this.state = {
       waypoints: null,
       route: null,
-      elevation: 0,
+      elevation: null,
       distance: null,
       title: "",
       userId: this.props.userId,
@@ -27,6 +27,8 @@ class RouteMap extends React.Component {
     this.calcElevation = this.calcElevation.bind(this);
     this.requestElevation = this.requestElevation.bind(this);
     this.commitRoute = this.commitRoute.bind(this);
+    this.runClick = this.runClick.bind(this);
+    this.bikeClick = this.bikeClick.bind(this);
   }
 
   initMap() {
@@ -110,6 +112,7 @@ class RouteMap extends React.Component {
     });
     this.path = this.polyLine.getPath();
     this.listenClicks();
+    this.bikeClick();
     this.setState({
       waypoints: null,
       title: "",
@@ -169,7 +172,6 @@ class RouteMap extends React.Component {
       sport: this.state.sport
     };
     this.props.createRoute(route);
-    // this.props.history.push("/routes/");
   }
 
   componentDidUpdate(prevProps) {
@@ -179,30 +181,74 @@ class RouteMap extends React.Component {
     }
   }
 
+  runClick() {
+    let button = document.getElementById("run-btn");
+    button.style.backgroundColor = "#777777";
+    this.update("sport");
+    let otherButton = document.getElementById("bike-btn");
+    otherButton.style.backgroundColor = "#FFFFFF";
+  }
+
+  bikeClick() {
+    let button = document.getElementById("bike-btn");
+    button.style.backgroundColor = "#777777";
+    this.update("sport");
+    let otherButton = document.getElementById("run-btn");
+    otherButton.style.backgroundColor = "#FFFFFF";
+  }
+
+  saveClick() {
+    let form = document.getElementById("submit-form");
+    form.style.display = "flex";
+  }
+
+  cancelClick() {
+    let form = document.getElementById("submit-form");
+    form.style.display = "none";
+  }
+
   render() {
-    let errors = "errors var";
+    let round = (value, decimals) => {
+      if (value !== null) { 
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+      }
+    };
+    let errors = "";
     if (this.props.errors !== undefined) {
       errors = this.props.errors.map(error => (<li key={error}>{error}</li>));
     }
     return (<div>
+      <div className="route-title"><h1>Route Builder</h1></div>
+      <span className="route-nav">
+      <div className="run-bike-btn">
+        <button id="bike-btn" value="Cycling" onClick={this.bikeClick}>Ride</button>
+        <button id="run-btn" value="Running" onClick={this.runClick}>Run</button>
+      </div>
+        <button className="route-save-button" onClick={this.resetRoute}>Reset</button>
+        <button onClick={this.saveClick} className="route-save-button">Save</button>
+      </span>
       <div className='map-container' id='map-container' ref={map => this.mapNode = map}>
       </div>
-      <label>Route Name
-        <input id="route-name" value={this.state.title} onChange={this.update("title")} type="text" required></input>
-      </label>
-      <label>
-        Choose a sport:
-        <select onChange={this.update("sport")} value={this.state.sport}>
-          <option value="Cycling">Cycling</option>
-          <option value="Running">Running</option>
-        </select>
-      </label>
-      <label>Description
-        <input value={this.state.description} onChange={this.update("description")} type="text"></input>
-      </label><br />
-      <p><button className="button" onClick={this.resetRoute}>Reset Route</button></p>
-      <p><button onClick={this.commitRoute} className="button">Save Route</button></p>
-      <div>{errors}</div>
+      <span className="route-dist">Distance: <strong>{round(this.state.distance / 1000, 2)} (km)</strong>, Elevation: <strong>{round(this.state.elevation / 1, 1)} (m)</strong></span>
+      
+      
+      <div className="submit-form" id="submit-form">
+      <h1 className="save-title">Save</h1>
+      <div className="mid-form"> 
+        <p>Enter a name and (optional) description of your route. Once saved, you'll be able to see the route and create workouts from it.</p>
+        <label>Route Name<br/>
+          <input id="route-name" value={this.state.title} onChange={this.update("title")} type="text" required></input>
+        </label>
+        <label>Description<br/>
+        <textarea rows="3" cols="60" onChange={this.update("description")}></textarea>
+        </label>
+        </div>
+        <div className="save-cancel-btn">
+          <button onClick={this.commitRoute} className="save-button">Save</button>
+          <button onClick={this.cancelClick} className="cancel-button">Cancel</button>
+        </div>
+        <ul>{errors}</ul>
+      </div>
     </div>
     )
   }
@@ -210,4 +256,5 @@ class RouteMap extends React.Component {
 }
 
 export default RouteMap;
+
 

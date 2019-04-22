@@ -7,7 +7,7 @@ class RouteSummary extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.users[this.props.route.user_id].username === undefined) {
+    if (this.props.users[this.props.route.user_id] === undefined) {
       this.props.getOwner(this.props.route.user_id);
     }
   }
@@ -18,9 +18,7 @@ class RouteSummary extends React.Component {
     let length = 0;
     let type = "";
     let owner = "";
-    // this.props.getOwner(this.props.route.user_id);
-    if (this.props.route) {
-      // this.props.getOwner(this.props.route.user_id);
+    if (this.props.route && this.props.users[this.props.route.user_id]) {
       length = round((this.props.route.distance / 1000), 2);
       elevation = round(this.props.route.elevation,1);
       type = this.props.route.sport;

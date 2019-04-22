@@ -1,11 +1,57 @@
 #map-container {
-  width: 700px;
-  height: 500px;
+  width: 900px;
+  height: 600px;
+  margin-left: 100px;
 }
 
 #map-show-container {
-  width: 700px;
-  height: 500px;
+  width: 900px;
+  height: 600px;
+}
+
+.save-title {
+  position: relative;
+  background: rgba(255,255,255,0.95);
+  padding: 15px 20px;
+  border-bottom: 1px solid #ccccd1;
+  margin: 0;
+}
+
+.submit-form {
+  position: absolute;
+  top: 325px;
+  left: 275px;
+  height: 450px;
+  width: 500px;
+  background: #f7f7f7;
+  display: none;
+  flex-direction: column;
+}
+
+.save-cancel-btn {
+  position: absolute;
+  top: 410px;
+  left: 340px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.route-nav {
+  width: 900px;
+  height: 50px;
+  margin-left: 100px;
+  display: flex;
+  justify-content: flex-end;
+  background: #F1F1F1;
+  margin-top: 25px;
+}
+
+.route-dist {
+  width: 900px;
+  margin-left: 100px;
+  display: flex;
+  background: #F1F1F1;
+  margin-bottom: 25px;
 }
 
 .route-title {
@@ -13,6 +59,7 @@
   margin-left: 100px;
   margin-right: 60px;
   border-bottom: 1px solid #CCCCCC;
+  width: 800px;
 }
 
 .route-idx-view {
@@ -59,11 +106,6 @@
 	cursor: pointer;
 }
 
-.new-route-button:active {
-	position: relative;
-	top: 1px;
-}
-
 .route-show {
   margin: 75px;
   display: flex;
@@ -84,19 +126,11 @@
   flex-direction: column;
 }
 
-.route-desc {
-
-}
-
 .dist-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-top: 1px solid #f2f2f2
-}
-
-.dist-inner {
-  
 }
 
 .route-button {
@@ -118,8 +152,78 @@
 	cursor: pointer;
 }
 
-.route-button:active {
-	position: relative;
-	top: 1px;
+.route-save-button {
+	background-color: #FC4C02;
+	border-radius: 3px;
+	border: 1px solid #CCCCCC;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bolder;
+	padding: 12px 15px;
+  text-decoration: none;
 }
+
+.route-save-button:hover {
+	background-color: #f5f5fa;
+	cursor: pointer;
+}
+
+.run-bike-btn {
+  position: absolute;
+  left: 500px;
+}
+
+.run-bike-btn > button {
+  height: 50px;
+}
+
+.save-button {
+	background-color: #2d2d32;
+	border-radius: 3px;
+	border: 1px solid #2d2d32;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: bolder;
+	padding: 6px 16px;
+  text-decoration: none;
+}
+
+.save-button:hover {
+	background-color: #45454d;
+	cursor: pointer;
+}
+
+.cancel-button {
+	background-color: #FFFFFF;
+	border-radius: 3px;
+	border: 1px solid #f5f5fa;
+	display: inline-block;
+	cursor: pointer;
+	color: #2d2d32;
+	font-size: 13px;
+	font-weight: bolder;
+	padding: 6px 16px;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.cancel-button:hover {
+	background-color: #f5f5fa;
+	cursor: pointer;
+}
+
+.mid-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  padding: 20px;
+  font-size: 14px;
+}
+
+
 
