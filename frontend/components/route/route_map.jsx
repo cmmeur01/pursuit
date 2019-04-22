@@ -7,7 +7,7 @@ class RouteMap extends React.Component {
       waypoints: null,
       route: null,
       elevation: 0,
-      distance: 0,
+      distance: null,
       title: "",
       userId: this.props.userId,
       description: "",
@@ -169,15 +169,26 @@ class RouteMap extends React.Component {
       sport: this.state.sport
     };
     this.props.createRoute(route);
-    this.props.history.push("/routes/");
+    // this.props.history.push("/routes/");
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.routes !== prevProps.routes) {
+      let next = Object.keys(this.props.routes)[Object.keys(this.props.routes).length - 1];
+      this.props.history.push(`/routes/${parseInt(next)}`);
+    }
   }
 
   render() {
+    let errors = "errors var";
+    if (this.props.errors !== undefined) {
+      errors = this.props.errors.map(error => (<li key={error}>{error}</li>));
+    }
     return (<div>
       <div className='map-container' id='map-container' ref={map => this.mapNode = map}>
       </div>
       <label>Route Name
-        <input id="route-name" value={this.state.title} onChange={this.update("title")} type="text"></input>
+        <input id="route-name" value={this.state.title} onChange={this.update("title")} type="text" required></input>
       </label>
       <label>
         Choose a sport:
@@ -191,6 +202,7 @@ class RouteMap extends React.Component {
       </label><br />
       <p><button className="button" onClick={this.resetRoute}>Reset Route</button></p>
       <p><button onClick={this.commitRoute} className="button">Save Route</button></p>
+      <div>{errors}</div>
     </div>
     )
   }
