@@ -12,7 +12,7 @@ class NavBar extends React.Component {
         <Link to="/">
           <img className="nav-logo" src={window.logo} />
         </Link>
-        <Link to="/routes"><button className="button">Routes</button></Link>
+        <Link to="/routes"><button className="nav-button">Routes</button></Link>
       <button className="button" onClick={this.props.logout}>Log Out</button>
     </div>
     )

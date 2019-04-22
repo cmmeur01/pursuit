@@ -29,6 +29,8 @@ class RouteMap extends React.Component {
     this.commitRoute = this.commitRoute.bind(this);
     this.runClick = this.runClick.bind(this);
     this.bikeClick = this.bikeClick.bind(this);
+    this.cancelClick = this.cancelClick.bind(this);
+    this.saveClick = this.saveClick.bind(this);
   }
 
   initMap() {
@@ -200,11 +202,17 @@ class RouteMap extends React.Component {
   saveClick() {
     let form = document.getElementById("submit-form");
     form.style.display = "flex";
+    if (this.props.errors.length !== 0) {
+      this.props.clearErrors();
+    }
   }
 
   cancelClick() {
     let form = document.getElementById("submit-form");
     form.style.display = "none";
+    if (this.props.errors.length !== 0) {
+      this.props.clearErrors();
+    }
   }
 
   render() {
