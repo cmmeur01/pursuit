@@ -1,0 +1,1 @@
+json.extract! workout, :id, :user_id, :route_id, :title, :description, :sport, :duration, :date
