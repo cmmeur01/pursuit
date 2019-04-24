@@ -1,11 +1,17 @@
 .nav-bar {
   height: 40px;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-around;
   font-weight: bolder;
   padding-bottom: 6px;
   padding-top: 10px;
   border-bottom: 1px solid #dedee2;
+  background-color: #FFFFFF;
+}
+ 
+.nav-logo {
+  /* position: absolute; */
+  margin-bottom: 10px;
 }
 
 .route-drop {
@@ -38,10 +44,7 @@
 }
 
 .nav-button {
-  /* background-color: #FFFFFF; */
-  /* color: #2d2d32; */
   border: none;
-  /* font-weight: bolder; */
   font-size: 16px;
   padding: 10px;
   width: 120px;

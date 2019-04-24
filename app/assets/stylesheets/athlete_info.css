@@ -1,0 +1,23 @@
+.athlete-info-container {
+  width: 250px;
+  height: 250px;
+  margin: 25px;
+  padding: 15px;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px rgb(13,13,18,0.1);
+}
+
+.athlete-info-container > h1 {
+  margin-top: 0px;
+}
+
+.work-route-disp {
+  display: flex;
+  flex-direction: row;
+}
+
