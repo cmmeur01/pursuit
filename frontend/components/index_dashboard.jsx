@@ -8,6 +8,7 @@ import IndexContainer from './index_container';
 import RouteIndex from './route/route_index_container';
 import RouteShow from './route/route_show_container';
 import RouteMap from './route/route_builder_container';
+import WorkoutShow from './workout/workout_show_container';
 import Page404 from './page_404';
 
 
@@ -21,6 +22,9 @@ const IndexDashboard = () => (
       <ProtectedRoute exact path="/routes" component={RouteIndex} />
       <ProtectedRoute exact path="/routes/new" component={RouteMap} />
       <ProtectedRoute exact path="/routes/:routeId" component={RouteShow} />
+      <ProtectedRoute exact path="/workouts/:workoutId" component={WorkoutShow} />
+      {/* <ProtectedRoute exact path="/workouts/new" component={} />
+      <ProtectedRoute exact path="/workouts" component={} /> */}
     </Switch>
   </div>
 );

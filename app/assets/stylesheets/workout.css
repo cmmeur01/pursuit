@@ -1,0 +1,12 @@
+.workout-container {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.left-right-container {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
