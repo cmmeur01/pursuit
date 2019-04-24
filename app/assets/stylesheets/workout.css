@@ -10,3 +10,17 @@
   padding: 15px;
 }
 
+.right-top {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  width: 300px;
+}
+
+.right-bottom {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  width: 300px;
+}
+

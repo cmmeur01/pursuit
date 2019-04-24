@@ -5,7 +5,8 @@ import { getRoute } from './../../actions/route_actions';
 
 const msp = (state, ownProps) => ({
   workout: state.entities.workouts[ownProps.match.params.workoutId],
-  routes: state.entities.routes
+  routes: state.entities.routes,
+  users: state.entities.users
 });
 
 const mdp = (dispatch) => ({

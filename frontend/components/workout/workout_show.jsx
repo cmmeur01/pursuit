@@ -1,5 +1,4 @@
 import React from 'react';
-import WorkoutMap from './workout_map_container';
 
 class WorkoutShow extends React.Component {
   constructor(props){
@@ -52,6 +51,10 @@ class WorkoutShow extends React.Component {
     directionsService.route(request, drawCB);
   }
 
+  paceCalc(distance, duration) {
+    return (distance/duration);
+  }
+
   componentDidMount() {
     this.props.getWorkout(parseInt(this.props.match.params.workoutId));
     this.initMap();
@@ -64,18 +67,43 @@ class WorkoutShow extends React.Component {
   }
 
   render() {
+    const round = (value, decimals) => (Number(Math.round(value + 'e' + decimals) + 'e-' + decimals));
+    let user;
+    let sport;
+    let date;
+    let title;
+    let description;
+    let distance;
+    let duration;
+    let pace;
+    let hours;
+    let minutes;
+    let elevation;
     if (this.props.workout && this.props.routes[this.props.workout.route_id]) {
-      this.drawRoute(this.props.routes[this.props.workout.route_id].route);
+      this.route = this.props.routes[this.props.workout.route_id];
+      this.drawRoute(this.route.route);
+      user = this.props.users[this.props.workout.user_id].username;
+      sport = this.props.workout.sport;
+      date = this.props.workout.date;
+      title = this.props.workout.title;
+      description = this.props.workout.description;
+      distance = this.route.distance;
+      duration = this.props.workout.duration;
+      pace = this.paceCalc(distance, duration);
+      hours = Math.floor(duration / 60);
+      minutes = duration % 60;
+      elevation = this.route.elevation;
     }
-    
 
     return (<div className="workout-container">
-              <div className="workout-title-bar">Username - SportType</div>
+              <div className="workout-title-bar"><h2>{user} - {sport}</h2></div>
               <div className="left-right-container">
-                <div className="left-workout">Date, title, etc</div>
-                <div className="right-workout">Distance, duration, pace</div>
+              <div className="left-workout"><h6>On: {date}</h6> <h2>{title}</h2> <h3>{description}</h3></div>
+              <div className="right-workout">
+              <div className="right-top"><h2>{round(distance / 1000, 2)}km</h2><h2>{hours}h {minutes}m</h2> <h2>{round(elevation, 1)}m</h2></div>
+              <div className="right-bottom"><h4>Distance</h4><h4>Time</h4><h4>Elevation</h4></div>
               </div>
-              
+              </div>
               <div className='map-show-container' id='map-show-container' ref={map => this.mapNode = map}>
               </div>
     
