@@ -62,7 +62,7 @@ class WorkoutShow extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.workout !== this.props.workout) {
-      this.props.getRoute(parseInt(this.props.workout.route_id));
+      this.props.getRoute(this.props.workout.route_id);
     }
   }
 

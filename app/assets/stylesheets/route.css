@@ -17,17 +17,6 @@
   margin: 0;
 }
 
-.submit-form {
-  position: absolute;
-  top: 325px;
-  left: 275px;
-  height: 450px;
-  width: 500px;
-  background: #f7f7f7;
-  display: none;
-  flex-direction: column;
-}
-
 .save-cancel-btn {
   position: absolute;
   top: 410px;
@@ -68,6 +57,10 @@
   border: 1px solid #f2f2f2;
   padding: 25px;
   margin: 10px;
+}
+
+.route-idx-view > p {
+  pointer-events: none;
 }
 
 .route-idx-view:hover {
@@ -229,7 +222,25 @@
 .item-map {
   width: 400px;
   height: 300px;
+  pointer-events: none;
 }
 
+.submit-form {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 325px;
+  left: 275px;
+  height: 450px;
+  width: 500px;
+  background: #f7f7f7;
+  z-index: 1;
+  box-shadow: 0px 8px 24px rgb(13,13,18,0.4);
+}
+
+.submit-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 

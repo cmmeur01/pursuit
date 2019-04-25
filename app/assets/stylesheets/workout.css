@@ -48,11 +48,14 @@
 .workout-new-bottom {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 .workout-new-top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 20px;
+  justify-content: space-around;
 }
 
 .workout-routes {
@@ -60,3 +63,49 @@
   flex: wrap;
 }
 
+.workout-form {
+  display: none;
+}
+
+.workout-form-show {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 325px;
+  left: 275px;
+  height: 450px;
+  width: 500px;
+  background: #f7f7f7;
+  z-index: 1;
+  box-shadow: 0px 8px 24px rgb(13,13,18,0.4);
+}
+
+.routes-container-hidden {
+  display: none;
+}
+
+.routes-container > h1 {
+  margin-left: 100px;
+  padding: 25px 50px;
+  border-bottom: 1px solid #CCCCCC;
+  width: 800px;
+}
+
+.workout-time {
+  display: flex;
+  flex-direction: row;
+}
+
+.workout-time > input {
+  width: 30px;
+}
+
+
+.test {
+  display: flex;
+  flex-direction: column;
+}
+
+#workout-desc {
+  margin: 0px 20px;
+}
