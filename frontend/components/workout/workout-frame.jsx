@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class IndexiFrame extends React.Component {
+class WorkoutFrame extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -10,7 +10,7 @@ class IndexiFrame extends React.Component {
     let waypoints = google.maps.geometry.encoding.decodePath(this.props.route.route);
 
     let mapOptions = {
-      center: waypoints[waypoints.length/2],
+      center: waypoints[waypoints.length / 2],
       zoom: 13
     };
 
@@ -19,7 +19,7 @@ class IndexiFrame extends React.Component {
       path: waypoints,
       strokeColor: '#F73333',
       strokeOpacity: 1.0,
-      strokeWeight: 2, 
+      strokeWeight: 2,
       map: this.map
     });
 
@@ -33,4 +33,4 @@ class IndexiFrame extends React.Component {
   }
 }
 
-export default IndexiFrame;
+export default WorkoutFrame;

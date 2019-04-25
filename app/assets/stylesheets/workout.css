@@ -40,3 +40,23 @@
   flex-direction: row;
 }
 
+.workout-creator-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-new-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-new-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-routes {
+  display: flex;
+  flex: wrap;
+}
+
