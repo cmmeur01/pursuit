@@ -36,7 +36,7 @@
   display: block;
   list-style: none;
   background-color: #dedee2;
-  max-width: 100px;
+  max-width: 120px;
 }
 
 .route-drop:hover .r-drop-cont {
@@ -47,5 +47,5 @@
   border: none;
   font-size: 16px;
   padding: 10px;
-  width: 120px;
+  width: 140px;
 }

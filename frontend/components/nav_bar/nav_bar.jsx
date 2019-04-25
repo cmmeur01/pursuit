@@ -19,9 +19,16 @@ class NavBar extends React.Component {
               <li><Link to="/routes/new">New Route</Link></li>
           </div>
         </div>
+        <div className="route-drop">
+          <button className="nav-button">Workouts</button>
+          <div className="r-drop-cont">
+            <li><Link to="/workouts">Your Workouts</Link></li><br />
+            <li><Link to="/workouts/new">New Workout</Link></li>
+          </div>
+        </div>
 
 
-      <button className="nav-button" onClick={this.props.logout}>Log Out</button>
+      <button className="button" onClick={this.props.logout}>Log Out</button>
     </div>
     )
   }
