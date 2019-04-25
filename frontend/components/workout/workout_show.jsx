@@ -98,9 +98,13 @@ class WorkoutShow extends React.Component {
     return (<div className="workout-container">
               <div className="workout-title-bar"><h2>{user} - {sport}</h2></div>
               <div className="left-right-container">
-              <div className="left-workout"><h6>On: {date}</h6> <h2>{title}</h2> <h3>{description}</h3></div>
+              <div className="left-workout"><h6>On: {date}</h6> <h1>{title}</h1> <h5>{description}</h5></div>
               <div className="right-workout">
-              <div className="right-top"><h2>{round(distance / 1000, 2)}km</h2><h2>{hours}h {minutes}m</h2> <h2>{round(elevation, 1)}m</h2></div>
+              <div className="right-top">
+                <div className="work-show-inner"><h2>{round(distance / 1000, 2)}</h2><h5>km</h5></div>
+                <div className="work-show-inner"><h2>{hours}</h2><h5>h</h5> <h2>{minutes}</h2><h5>m</h5></div>
+                <div className="work-show-inner"><h2>{round(elevation, 1)}</h2><h5>m</h5></div> 
+              </div>
               <div className="right-bottom"><h4>Distance</h4><h4>Time</h4><h4>Elevation</h4></div>
               </div>
               </div>

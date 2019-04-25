@@ -2,25 +2,41 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
+  margin-left: 100px;
+}
+
+.workout-title-bar {
+  width: 900px;
+  background: #f5f5fa;
+}
+
+.left-workout {
+  width: 450px;
 }
 
 .left-right-container {
   display: flex;
   flex-direction: row;
-  padding: 15px;
+  width: 900px;
+  height: 200px;
 }
 
 .right-top {
   display: flex;
   flex-direction: row;
-  align-content: flex-end;
-  width: 300px;
+  justify-content: space-between;
+  width: 450px;
 }
 
 .right-bottom {
   display: flex;
   flex-direction: row;
-  align-content: space-between;
-  width: 300px;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.work-show-inner {
+  display: flex;
+  flex-direction: row;
 }
 
