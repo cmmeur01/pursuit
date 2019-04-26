@@ -116,13 +116,13 @@ class WorkoutCreator extends React.Component {
 
                 <div className="workout-new-top">
 
-                  <div className="test">
+                  <div className="wo-top-test">
                   <label htmlFor="workout-date">Date </label>
                       <input type="date" name="workout-date" id="workout-date"
                         onChange={this.update("date")}/>   
                   </div>
 
-                  <div className="test">
+                  <div className="wo-top-dur">
                   <label htmlFor="workout-time">Duration</label>
                     <div id="workout-time" className="workout-time">
                       <input type="text" id="hr"
@@ -149,7 +149,7 @@ class WorkoutCreator extends React.Component {
                       </select>
                     </div>
 
-                    <div className="test">
+                    <div className="wo-top-title">
                     <label htmlFor="workout-title">Title</label>
                       <input type="text" id="workout-title"
                         onChange={this.update("title")} /> 

@@ -45,6 +45,14 @@
 
 .route-title {
   padding: 25px 50px;
+  margin: 0px 100px;
+  margin-right: 60px;
+  border-bottom: 1px solid #CCCCCC;
+  /* width: 800px; */
+}
+
+.route-builder-title {
+  padding: 25px 50px;
   margin-left: 100px;
   margin-right: 60px;
   border-bottom: 1px solid #CCCCCC;

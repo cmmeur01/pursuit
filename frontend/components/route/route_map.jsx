@@ -226,7 +226,7 @@ class RouteMap extends React.Component {
       errors = this.props.errors.map(error => (<li key={error}>{error}</li>));
     }
     return (<div>
-      <div className="route-title"><h1>Route Builder</h1></div>
+      <div className="route-builder-title"><h1>Route Builder</h1></div>
       <span className="route-nav">
       <div className="run-bike-btn">
         <button id="bike-btn" value="Cycling" onClick={this.bikeClick}>Ride</button>

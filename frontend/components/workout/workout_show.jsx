@@ -48,6 +48,7 @@ class WorkoutShow extends React.Component {
     if (this.props.workout && this.props.routes[this.props.workout.route_id]) {
       this.route = this.props.routes[this.props.workout.route_id];
       waypoints = google.maps.geometry.encoding.decodePath(this.props.routes[this.props.workout.route_id].route);
+      this.map.setCenter(waypoints[waypoints.length/2]);
       polyLine = new google.maps.Polyline({
         path: waypoints,
         strokeColor: '#F73333',
