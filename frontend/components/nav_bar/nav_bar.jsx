@@ -22,7 +22,7 @@ class NavBar extends React.Component {
         <div className="route-drop">
           <button className="nav-button">Workouts</button>
           <div className="r-drop-cont">
-            <li><Link to="/">Your Workouts</Link></li><br />
+            <li><Link to="/">Workout Feed</Link></li><br />
             <li><Link to="/workouts/new">New Workout</Link></li>
           </div>
         </div>

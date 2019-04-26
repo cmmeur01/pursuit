@@ -57,10 +57,10 @@ class AthleteInfo extends React.Component {
           <div className="wo-inner-disp"><div>Running: {runs.length}</div><div>Cycling: {bikes.length}</div></div>
         </div>
         <div className="work-route-disp">Total Distance
-          <div className="wo-inner-disp"><div>Running: {round(runDist/1000,2)}km</div><div>Cycling: {round(bikeDist/1000,2)}km</div></div>
+          <div className="wo-inner-disp"><div className="wo-inner-fix">Running: {round(runDist / 1000, 2)}km</div><div className="wo-inner-fix">Cycling: {round(bikeDist/1000,2)}km</div></div>
         </div>
         <div className="work-route-disp">Last Workout
-          <div className="wo-inner-disp"><div>Running: {runDate}</div><div>Cycling: {bikeDate}</div></div>
+          <div className="wo-inner-disp"><div>Running: <br/>{runDate}</div><div>Cycling:<br/>{bikeDate}</div></div>
         </div>
         </div>
     );

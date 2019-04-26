@@ -1,5 +1,6 @@
 import React from 'react';
 import RouteSummary from './route_summary';
+import { Link } from 'react-router-dom';
 
 class RouteShow extends React.Component {
   constructor(props){
@@ -37,18 +38,19 @@ class RouteShow extends React.Component {
         map: this.map
       });
     }
-
+    
     return (<div className="route-show">
               <div>
                 <h1>{routeTitle}</h1>
                 <h4 className="route-desc">{routeDesc}</h4>
-                  <button className="route-button">New Workout</button>
+                <Link to="/workouts/new">
+                <button className="route-button">New Workout</button></Link>
                   <div className='map-show-container' id='map-show-container' ref={map => this.mapNode = map}>
                  </div>
               </div>
               <div className="route-info-container">
                 <div className="route-info"><RouteSummary route={this.props.route} users={this.props.users} getOwner={this.props.getOwner}/></div>
-                <div className="route-leaderboard">this is where the route leaderboard will display</div>
+                <div className="route-leaderboard"></div>
               </div>
             </div>);
   }

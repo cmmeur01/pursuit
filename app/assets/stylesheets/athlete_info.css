@@ -1,19 +1,19 @@
 .athlete-info-container {
   width: 250px;
   height: 250px;
-  margin: 25px;
+  margin: 50px;
   padding: 15px;
   background: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: left;
   border-radius: 4px;
   box-shadow: 0px 8px 24px rgba(13,13,18,0.4);
 }
 
 .athlete-info-container > h1 {
-  margin-top: 0px;
+  align-self: center;
 }
 
 .work-route-disp {
@@ -24,10 +24,15 @@
 .wo-inner-disp {
   display: flex;
   flex-direction: row;
+  /* align-content: space-around; */
 }
 
 .wo-inner-disp > div{
-  margin: 15px;
+  margin: 8px;
+}
+
+.wo-inner-fix {
+  width: 80px;
 }
 
 
