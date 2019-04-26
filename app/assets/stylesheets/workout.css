@@ -121,17 +121,24 @@
 .bottom-wo-items {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #CCC;
 }
 
 #wo-idx-item {
   width: 700px;
-  height: 750px;
+  height: 650px;
   display: flex;
   justify-content: center; 
   border: 1px solid #CCCCCC;
   margin: 25px;
   box-shadow: 0px 8px 24px rgba(13,13,18,0.4);
   border-radius: 3px;
+}
+
+.wo-idx-item > li {
+  list-style: none;
 }
 
 .wo-idx-item-map {
@@ -141,11 +148,15 @@
 
 .wo-show-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .wo-inner {
   display: flex;
   flex-direction: row;
+}
+
+.top-wo-items {
+  border-bottom: 1px solid #ccc;
 }
 
