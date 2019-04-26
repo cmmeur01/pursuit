@@ -18,6 +18,16 @@
 
 .work-route-disp {
   display: flex;
+  flex-direction: column;
+}
+
+.wo-inner-disp {
+  display: flex;
   flex-direction: row;
 }
+
+.wo-inner-disp > div{
+  margin: 15px;
+}
+
 
