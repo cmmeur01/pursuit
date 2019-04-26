@@ -9,7 +9,7 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 4px;
-  box-shadow: 0px 8px 24px rgb(13,13,18,0.4);
+  box-shadow: 0px 8px 24px rgba(13,13,18,0.4);
 }
 
 .athlete-info-container > h1 {
