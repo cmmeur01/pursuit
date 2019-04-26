@@ -4,10 +4,8 @@
 }
 
 .splash-bg {
-  max-width: 100%;
+  max-width: 100%; 
   height: auto;
-  position: absolute;
-  top: -49px;
 }
 
 .splash {
