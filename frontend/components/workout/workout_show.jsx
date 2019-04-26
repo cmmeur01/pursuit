@@ -48,14 +48,17 @@ class WorkoutShow extends React.Component {
     if (this.props.workout && this.props.routes[this.props.workout.route_id]) {
       this.route = this.props.routes[this.props.workout.route_id];
       waypoints = google.maps.geometry.encoding.decodePath(this.props.routes[this.props.workout.route_id].route);
-      this.map.setCenter(waypoints[waypoints.length/2]);
-      polyLine = new google.maps.Polyline({
-        path: waypoints,
-        strokeColor: '#F73333',
-        strokeOpacity: 1.0,
-        strokeWeight: 2,
-        map: this.map
-      });
+      if (this.map !== undefined) {
+        this.map.setCenter(waypoints[waypoints.length/2]);
+        polyLine = new google.maps.Polyline({
+          path: waypoints,
+          strokeColor: '#F73333',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          map: this.map
+        });
+      }
+
       user = this.props.users[this.props.workout.user_id].username;
       sport = this.props.workout.sport;
       date = this.props.workout.date;

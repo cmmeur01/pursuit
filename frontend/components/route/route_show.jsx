@@ -30,14 +30,16 @@ class RouteShow extends React.Component {
       routeTitle = this.props.route.title;
       routeDesc = this.props.route.description;
       let waypoints = google.maps.geometry.encoding.decodePath(this.props.route.route);
-      this.map.setCenter(waypoints[waypoints.length / 2]);
-      let polyLine = new google.maps.Polyline({
-        path: waypoints,
-        strokeColor: '#F73333',
-        strokeOpacity: 1.0,
-        strokeWeight: 2,
-        map: this.map
-      });
+      if (this.map !== undefined) {
+        this.map.setCenter(waypoints[waypoints.length/2]);
+        let polyLine = new google.maps.Polyline({
+          path: waypoints,
+          strokeColor: '#F73333',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+          map: this.map
+        });
+      }
     }
     
     return (<div className="route-show">
