@@ -6,10 +6,11 @@ export const create = (workout) => {
   });
 };
 
-export const getWorkouts = () => {
+export const getWorkouts = (id) => {
   return $.ajax({
     method: 'GET',
-    url: "/api/workouts"
+    url: "/api/workouts",
+    data: { id }
   });
 };
 

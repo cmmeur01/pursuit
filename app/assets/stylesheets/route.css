@@ -57,6 +57,7 @@
   border: 1px solid #f2f2f2;
   padding: 25px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .route-idx-view > p {

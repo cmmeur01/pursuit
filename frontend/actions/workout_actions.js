@@ -25,8 +25,8 @@ export const createWorkout = (workout) => dispatch => {
   );
 };
 
-export const getAllWorkouts = () => dispatch => {
-  return getWorkouts().then(workouts => dispatch(receiveWorkouts(workouts)),
+export const getAllWorkouts = (id) => dispatch => {
+  return getWorkouts(id).then(workouts => dispatch(receiveWorkouts(workouts)),
     errors => console.log(errors)
   );
 };
