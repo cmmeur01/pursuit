@@ -77,7 +77,7 @@
   width: 500px;
   background: #f7f7f7;
   z-index: 1;
-  box-shadow: 0px 8px 24px rgb(13,13,18,0.4);
+  box-shadow: 0px 8px 24px rgba(13,13,18,0.4);
 }
 
 .routes-container-hidden {
@@ -129,7 +129,7 @@
   justify-content: center; 
   border: 1px solid #CCCCCC;
   margin: 25px;
-  box-shadow: 0px 8px 24px rgb(13,13,18,0.4);
+  box-shadow: 0px 8px 24px rgba(13,13,18,0.4);
   border-radius: 3px;
 }
 
