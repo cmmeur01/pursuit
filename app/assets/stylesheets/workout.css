@@ -114,5 +114,37 @@
   position: absolute;
   top: 85px;
   left: 400px;
-  border: 1px solid red;
+  width: 780px;
 }
+
+.bottom-wo-items {
+  display: flex;
+  flex-direction: row;
+}
+
+#wo-idx-item {
+  width: 700px;
+  height: 750px;
+  display: flex;
+  justify-content: center; 
+  border: 1px solid #CCCCCC;
+  margin: 25px;
+  box-shadow: 0px 8px 24px rgb(13,13,18,0.4);
+  border-radius: 3px;
+}
+
+.wo-idx-item-map {
+  width: 600px;
+  height: 400px;
+}
+
+.wo-show-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.wo-inner {
+  display: flex;
+  flex-direction: row;
+}
+

@@ -15,10 +15,8 @@ class Index extends React.Component {
     const indexDisp = this.props.currentUser ? (
         <div>
           <NavBar />
-          
           <ProtectedRoute exact path="/" component={AthleteInfo} />
           <ProtectedRoute exact path="/" component={WorkoutIndex} />
-      
         </div>
     ) : (
         <Splash location={this.props.history.location.pathname} />

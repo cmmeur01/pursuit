@@ -6,7 +6,8 @@ import { getAllRoutes } from './../../actions/route_actions';
 const msp = (state) => ({
   userId: parseInt(state.session.currentUserId),
   routes: state.entities.routes,
-  workouts: state.entities.workouts
+  workouts: state.entities.workouts,
+  users: state.entities.users
 });
 
 const mdp = (dispatch) => ({

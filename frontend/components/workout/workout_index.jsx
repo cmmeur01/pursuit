@@ -18,7 +18,7 @@ class WorkoutIndex extends React.Component {
       let workouts = Object.values(this.props.workouts);
       workoutIndexItems = workouts.map((workout) => (<Link key={workout.id} to={`/workouts/${workout.id}`}>
         <div className="wo-idx-view">
-          <WorkoutIndexItem workout={workout} route={this.props.routes[workout.route_id]} />
+          <WorkoutIndexItem workout={workout} route={this.props.routes[workout.route_id]} users={this.props.users}/>
         </div>
         </Link>))
     }
