@@ -39,10 +39,6 @@
 	cursor: pointer;
 }
 
-.button:active {
-	position: relative;
-	top: 1px;
-}
 
 .button-login {
 	background-color: #FFFFFF;
@@ -62,10 +58,6 @@
 	cursor: pointer;
 }
 
-.button-login:active {
-	position: relative;
-	top: 1px;
-}
 
 .form-button {
 	background-color: #FC4C02;
@@ -88,13 +80,6 @@
 	cursor: pointer;
 }
 
-.form-button:active {
-	position: relative;
-	top: 1px;
-}
 
-.nav-logo {
-	height: 36px;
-	margin-top: 10px;
-}
+
 
