@@ -7,6 +7,7 @@ class RouteIndexItem extends React.Component {
   }
 
   render() {
+    
     const round = (value, decimals) => (Number(Math.round(value + 'e' + decimals) + 'e-' + decimals));
 
     return (<div className="route-list">

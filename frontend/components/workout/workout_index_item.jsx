@@ -9,7 +9,7 @@ class WorkoutIndexItem extends React.Component {
     let waypoints = google.maps.geometry.encoding.decodePath(this.props.route.route);
 
     let mapOptions = {
-      center: waypoints[waypoints.length / 2],
+      center: waypoints[Math.floor(waypoints.length / 2)],
       zoom: 13
     };
 
