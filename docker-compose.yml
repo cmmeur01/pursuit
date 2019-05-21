@@ -10,7 +10,7 @@ services:
       dockerfile: Dockerfile.web
     image: cmmeur01/pursuit-web
     volumes:
-      - .:/myapp
+      - .:/pursuit
     ports:
       - "3000:3000"
     depends_on:
@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile.frontend
     image: cmmeur01/pursuit-frontend
     volumes:
-      - ".:/usr/src/app"
-      - "/usr/src/app/node_modules"
+      - ".:/usr/src/pursuit"
+      - "/usr/src/pursuit/node_modules"
     environment:
       - NODE_ENV=development

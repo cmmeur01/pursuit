@@ -10,13 +10,13 @@ RUN apk add --no-cache --update build-base \
 ARG DATABASE_URL="postgres://postgres@db"
 ARG RAILS_ENV=production
 
-WORKDIR /myapp
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+WORKDIR /pursuit
+COPY Gemfile /pursuit/Gemfile
+COPY Gemfile.lock /pursuit/Gemfile.lock
 
-RUN gem install bundler && bundle install
+RUN gem install bundler && bundle install && bundle exec rails assets:precompile
 
-COPY . /myapp
+COPY . /pursuit
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

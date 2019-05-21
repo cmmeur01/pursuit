@@ -1,13 +1,13 @@
 FROM node:11-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/pursuit
 
 ARG NODE_ENV=production
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV PATH /usr/src/pursuit/node_modules/.bin:$PATH
 
-COPY package.json /usr/src/app/package.json
+COPY package.json /usr/src/pursuit/package.json
 
 RUN npm install --silent
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "postinstall"]

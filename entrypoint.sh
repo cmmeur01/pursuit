@@ -1,3 +1,3 @@
 set -e
-rm -f /myapp/tmp/pids/server.pid
+rm -f /pursuit/tmp/pids/server.pid
 exec "$@"
