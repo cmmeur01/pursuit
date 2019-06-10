@@ -134,16 +134,15 @@ class RouteMap extends React.Component {
     const addLatLng = (event) => {
       //add the point to the path
       thatPath.push(event.latLng);
-      
+      //make a new marker at that position
       var marker = new google.maps.Marker({
         position: event.latLng,
         map: thatMap
       });
+      //add the marker to the array of markers to display
       this.markers.push(marker);
       //set the state to the waypoints array from the create path
       this.setState({ waypoints: thatPath["j"] });
-      //push the state to the parent builder component
-      // this.props.sendData(this.state);
     };
 
     this.map.addListener('click', addLatLng);
