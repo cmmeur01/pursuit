@@ -144,10 +144,11 @@ class RouteMap extends React.Component {
       //set the state to the waypoints array from the create path
       this.setState({ waypoints: thatPath["j"] });
     };
-
+    
+    //adding the point to the waypoints / markers
+    //saving the route builds the request for elevation API
     this.map.addListener('click', addLatLng);
     this.map.addListener('click', this.saveRoute);
-    
   }
 
   componentDidMount() {
